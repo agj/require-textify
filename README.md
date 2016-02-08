@@ -2,6 +2,9 @@
 require-textify
 ===============
 
+[![Build Status](https://travis-ci.org/agj/require-textify.svg?branch=master)](https://travis-ci.org/agj/require-textify)
+[![Dependency Status](https://david-dm.org/agj/require-textify.svg)](https://david-dm.org/agj/require-textify)
+
 A [Node][node] (javascript) package that provides a [Browserify][browserify] transform to allow using `require` on files to get them as plain text (UTF-8), selecting them by a glob pattern (using [minimatch][minimatch]).
 
 Based on the [stringify][stringify] transform, which does something similar but only allows identifying files by their extension. My use case was a bit more complicated, so I decided to create this alternative package.
