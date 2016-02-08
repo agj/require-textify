@@ -1,7 +1,6 @@
 'use strict';
 
 var through = require('through2');
-var path = require('path');
 var minimatch = require('minimatch');
 
 var passThrough = function () {
@@ -9,24 +8,34 @@ var passThrough = function () {
 };
 
 module.exports = function (filename, options) {
-	options = options || {};
+	var requireTextify = function (filename) {
+		console.log(filename);
+		options = options || {};
 
-	if (!options.match || !minimatch(filename, options.match))
-		return passThrough();
+		if (!options.match || !minimatch(filename, options.match))
+			return passThrough();
 
-	var data = [];
-	return through(
-		function (buffer, encoding, next) {
-			data.push(buffer);
-			next();
-		},
-		function (end) {
-			this.push(
-				'\nmodule.exports = ' +
-				JSON.stringify(Buffer.concat(data).toString('utf8')) +
-				';\n'
-			);
-			end();
-		}
-	);
+		var data = [];
+		return through(
+			function (buffer, encoding, next) {
+				data.push(buffer);
+				next();
+			},
+			function (end) {
+				this.push(
+					'module.exports = ' +
+					JSON.stringify(Buffer.concat(data).toString('utf8')) +
+					';'
+				);
+				end();
+			}
+		);
+	}
+
+	if (typeof filename !== 'string') {
+		options = filename;
+		return requireTextify;
+	} else {
+		return requireTextify(filename);
+	}
 };

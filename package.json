@@ -4,7 +4,7 @@
   "description": "Browserify transform to require text files.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test"
   },
   "keywords": [
     "browserify-transform"
@@ -15,5 +15,11 @@
   "dependencies": {
     "minimatch": "^3.0.0",
     "through2": "^2.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "concat-stream": "^1.5.1",
+    "tape": "^4.4.0",
+    "tape-catch": "^1.0.4"
   }
 }
