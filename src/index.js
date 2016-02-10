@@ -9,7 +9,6 @@ var passThrough = function () {
 
 module.exports = function (filename, options) {
 	var requireTextify = function (filename) {
-		console.log(filename);
 		options = options || {};
 
 		if (!options.match || !minimatch(filename, options.match))
