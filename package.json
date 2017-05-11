@@ -1,6 +1,6 @@
 {
   "name": "require-textify",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Browserify transform to require text files.",
   "main": "src/index.js",
   "directories": {
