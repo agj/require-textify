@@ -16,8 +16,8 @@
   "author": "agj",
   "license": "ISC",
   "dependencies": {
-    "minimatch": "^3.0.0",
-    "through2": "^2.0.0"
+    "minimatch": "^3.0.4",
+    "through2": "^2.0.3"
   },
   "devDependencies": {
     "browserify": "^13.0.0",
